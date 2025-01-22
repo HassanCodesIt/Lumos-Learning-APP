@@ -1,6 +1,4 @@
 export const speakLetter = (letter: string) => {
-  const utterance = new SpeechSynthesisUtterance();
-
   // Define a mapping of letters to words
   const letterWords: Record<string, string> = {
     A: "Apple",
@@ -31,46 +29,72 @@ export const speakLetter = (letter: string) => {
     Z: "Zebra",
   };
 
-  // Get the word for the letter
   const word = letterWords[letter.toUpperCase()] || "Unknown";
+  const upperLetter = letter.toUpperCase();
 
-  // Step-by-step interaction text with natural pauses
-  utterance.text = `This is ${letter.toUpperCase()}. `;
-  utterance.text += `Can you say ${letter.toUpperCase()}? `;
-  utterance.text += `Now, let's learn a word that starts with ${letter.toUpperCase()}. `;
-  utterance.text += `It is ${word}. `;
-  utterance.text += `Can you say ${word}? `;
-  utterance.text += `Great job! Let's say ${word} again, together.`;
+  // Function to create and configure utterance
+  const createUtterance = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.45;
+    utterance.pitch = 1.1;
+    utterance.volume = 1;
+    utterance.lang = "en-US";
+    return utterance;
+  };
 
-  // Adjust voice properties for clarity, slowness, and naturalness
-  utterance.rate = 0.45; // Slow rate for clarity and to allow students time to say it
-  utterance.pitch = 1.1; // A friendly, natural pitch (not too high or low)
-  utterance.volume = 1; // Full volume for clear speech
-  utterance.lang = "en-US"; // English language
-
-  // Function to set the voice
-  const setFemaleVoice = () => {
+  // Function to set female voice and speak
+  const speakWithFemaleVoice = (utterance: SpeechSynthesisUtterance) => {
     const voices = window.speechSynthesis.getVoices();
-
-    // Attempt to find a female voice with a natural tone
     const femaleVoice = voices.find((voice) =>
       ["female", "samantha", "zira", "google uk english female", "google us english"].some((keyword) =>
         voice.name.toLowerCase().includes(keyword)
       )
     );
-
-    // Fallback to the first available voice if no female voice is found
     utterance.voice = femaleVoice || voices[0];
-
-    // Speak the text
     window.speechSynthesis.speak(utterance);
   };
 
-  // Check if voices are already loaded
+  // Speech sequence with delays
+  const speakSequence = () => {
+    let currentDelay = 0;
+    const delayBetweenUtterances = 1200; // 1.2 seconds between phrases
+
+    // First letter utterance
+    setTimeout(() => {
+      speakWithFemaleVoice(createUtterance(upperLetter));
+    }, currentDelay);
+    currentDelay += delayBetweenUtterances;
+
+    // Second letter utterance
+    setTimeout(() => {
+      speakWithFemaleVoice(createUtterance(upperLetter));
+    }, currentDelay);
+    currentDelay += delayBetweenUtterances;
+
+    // Third letter utterance
+    setTimeout(() => {
+      speakWithFemaleVoice(createUtterance(upperLetter));
+    }, currentDelay);
+    currentDelay += delayBetweenUtterances;
+
+    // First letter-word combination
+    setTimeout(() => {
+      speakWithFemaleVoice(createUtterance(`${upperLetter} for ${word}`));
+    }, currentDelay);
+    currentDelay += delayBetweenUtterances;
+
+    // Second letter-word combination
+    setTimeout(() => {
+      speakWithFemaleVoice(createUtterance(`${upperLetter} for ${word}`));
+    }, currentDelay);
+  };
+
+  // Check if voices are loaded and start sequence
   if (window.speechSynthesis.getVoices().length > 0) {
-    setFemaleVoice();
+    speakSequence();
   } else {
-    // Wait for the voices to be loaded
-    window.speechSynthesis.onvoiceschanged = setFemaleVoice;
+    window.speechSynthesis.onvoiceschanged = () => {
+      speakSequence();
+    };
   }
 };
