@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # **Lumos Learning App**
 
 ## **Table of Contents**
