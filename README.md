@@ -114,7 +114,7 @@ Contributions are welcome! Here's how you can help:
 
 ## **Contact**
 **Manikandan M**  
-Email: [mmanikandan281@gmail.com]  
+Email: mmanikandan281@gmail.com
 GitHub: [Manikandan-M](https://github.com/mmanikandan281)  
 
 ---
