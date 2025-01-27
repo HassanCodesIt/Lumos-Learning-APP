@@ -113,9 +113,9 @@ Contributions are welcome! Here's how you can help:
 ---
 
 ## **Contact**
-**Vyshnav MS**  
-Email: [vyshnams1@gmail.com](mailto:vyshnams1@gmail.com)  
-GitHub: [Vyshnav-ms](https://github.com/Vyshnav-ms)  
+**Manikandan M**  
+Email: [mmanikandan281@gmail.com]  
+GitHub: [Manikandan-M](https://github.com/mmanikandan281)  
 
 ---
 
