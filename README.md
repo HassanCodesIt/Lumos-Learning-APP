@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # **Lumos Learning App**
 
 ## **Table of Contents**
@@ -119,3 +120,7 @@ GitHub: [Vyshnav-ms](https://github.com/Vyshnav-ms)
 ---
 
 
+=======
+# Lumos-Learning-App
+The Lumos Learning App is designed for CP (Cognitive and Physical) students to make learning the English alphabet fun and interactive. The app combines visual animations, auditory cues, and a responsive drawing canvas to create an engaging experience for children.
+>>>>>>> dda6fe138d0bbc137da6a8cccd66b77609d14eec
