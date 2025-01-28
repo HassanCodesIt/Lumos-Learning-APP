@@ -115,6 +115,7 @@ Contributions are welcome! Here's how you can help:
 ## **Contact**
 **Manikandan M**  
 Email: mmanikandan281@gmail.com
+
 GitHub: [Manikandan-M](https://github.com/mmanikandan281)  
 
 ---
@@ -123,4 +124,3 @@ GitHub: [Manikandan-M](https://github.com/mmanikandan281)
 =======
 # Lumos-Learning-App
 The Lumos Learning App is designed for CP (Cognitive and Physical) students to make learning the English alphabet fun and interactive. The app combines visual animations, auditory cues, and a responsive drawing canvas to create an engaging experience for children.
->>>>>>> dda6fe138d0bbc137da6a8cccd66b77609d14eec
